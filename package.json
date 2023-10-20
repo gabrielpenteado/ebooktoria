@@ -1,0 +1,32 @@
+{
+  "name": "ebooktoria",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.4",
+    "@as-integrations/next": "^2.0.2",
+    "@prisma/client": "^5.4.2",
+    "graphql": "^16.8.1",
+    "next": "13.5.5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.5",
+    "postcss": "^8",
+    "prisma": "^5.4.2",
+    "tailwindcss": "^3",
+    "typescript": "^5"
+  }
+}
