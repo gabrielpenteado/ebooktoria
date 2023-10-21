@@ -66,5 +66,20 @@ export const resolvers = {
         },
       });
     },
+    addCategory: async (parent: any, args: any, context: Context) => {
+      return await context.prisma?.category.create({
+        data: {
+          ebookId: args.ebookId,
+          name: args.name,
+        },
+      });
+    },
+    deleteCategory: async (parent: any, args: any, context: Context) => {
+      return await context.prisma?.category.delete({
+        where: {
+          id: args.id,
+        },
+      });
+    },
   },
 };

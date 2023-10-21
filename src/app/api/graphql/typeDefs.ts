@@ -33,5 +33,7 @@ export const typeDefs = `#graphql
     deleteEbook(id: ID!): Ebook
     addAuthor(ebookId: ID!, name: String!): Author
     deleteAuthor(id: ID!): Author
+    addCategory(ebookId: ID!, name: String!): Category
+    deleteCategory(id: ID!): Category
   }
 `;
