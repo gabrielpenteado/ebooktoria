@@ -21,6 +21,13 @@ export const resolvers = {
         },
       });
     },
+    categories: async (parent: any, args: any, context: Context) => {
+      return await context.prisma?.category.findMany({
+        where: {
+          ebookId: parent.id,
+        },
+      });
+    },
   },
   Mutation: {
     addEbook: async (parent: any, args: any, context: Context) => {

@@ -14,7 +14,7 @@ model Ebook {
   id         String     @id @default(uuid())
   title      String
   image_url  String
-  link       String?
+  link       String
   createAt   DateTime   @default(now())
   updateAt   DateTime   @default(now())
   authors    Author[]

@@ -3,7 +3,7 @@ CREATE TABLE "ebooks" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "image_url" TEXT NOT NULL,
-    "link" TEXT,
+    "link" TEXT NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updateAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

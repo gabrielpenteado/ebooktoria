@@ -1,6 +1,6 @@
 export const typeDefs = `#graphql
   type Query {
-    ebooks: [Ebook]
+    ebooks: [Ebook!]
     ebook(id: ID): Ebook
   }
 
@@ -11,8 +11,8 @@ export const typeDefs = `#graphql
   link:       String!
   createAt:   String!   
   updateAt:   String!  
-  authors:    [Author]
-  categories: [Category]
+  authors:    [Author!]
+  categories: [Category!]
   }
 
   type Author {
