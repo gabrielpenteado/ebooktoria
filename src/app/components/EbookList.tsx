@@ -13,14 +13,15 @@ export default function EbookList() {
   // console.log(ebooks);
 
   const pathname = usePathname();
-  console.log(pathname);
+  // console.log(pathname);
 
   if (loading)
     return (
-      <p className="text-black flex items-center justify-center">
-        Loading ....
+      <p className="text-black w-[100vw] flex items-center justify-center align-middle">
+        Loading...
       </p>
     );
+
   if (error)
     return (
       <p className="text-black flex items-center justify-center">
@@ -32,6 +33,4 @@ export default function EbookList() {
     return ebooks.map((ebook) => <Ebook key={ebook.id} ebook={ebook} />);
   if (pathname === "/admin")
     return ebooks.map((ebook) => <EbookAdmin key={ebook.id} ebook={ebook} />);
-
-  // ebooks.map((ebook) => <Ebook key={ebook.id} ebook={ebook} />);
 }

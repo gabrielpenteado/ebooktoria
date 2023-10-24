@@ -77,7 +77,9 @@ export default function AdminPage() {
               className="bg-transparent border text-black p-2 rounded-lg"
             />
           </div>
-          <button className="bg-yellow-500 p-2 rounded-lg ">Add Ebook</button>
+          <button className="bg-amber-400 text-white hover:bg-amber-500 p-2 rounded-lg ">
+            Add Ebook
+          </button>
         </form>
       </div>
 

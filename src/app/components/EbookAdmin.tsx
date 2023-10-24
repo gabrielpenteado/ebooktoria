@@ -34,6 +34,15 @@ export default function EbookAdmin({ ebook }: Props) {
 
       {/*title  */}
       <h1 className="font-bold text-xl text-center mt-6 mb-2">{ebook.title}</h1>
+      {/* source and date */}
+      <div className="flex justify-between italic text-xs mt-auto text-gray-800">
+        <p className="text-gray-700 text-sm">
+          Authors :{" "}
+          {ebook?.authors.map((author) => (
+            <span key={author.id}>{author.name} ; </span>
+          ))}
+        </p>
+      </div>
       {/* description */}
       <p className="text-xs my-2 line-clamp-3">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab
@@ -41,22 +50,18 @@ export default function EbookAdmin({ ebook }: Props) {
         veritatis cum, soluta numquam voluptatum earum obcaecati illum dolor.
         Fuga incidunt maxime culpa.
       </p>
-      {/* source and date */}
-      <div className="flex justify-between italic	 ß text-xs mt-auto  text-slate-500">
-        <p className="text-white text-lg">Authors :{ebook?.authors.length}</p>
-      </div>
+
       <Link
-        // href={`${BASE_URL}/ebook/${ebook.id}`}
-        href={ebook.link}
+        href={`${BASE_URL}/ebook/${ebook.id}`}
         target="_blank"
-        className="bg-orange-500 mt-5 p-2 rounded-lg text-center"
+        className="bg-orange-500 hover:bg-orange-600 mt-5 p-2 text-white rounded-lg text-center"
       >
-        Read More
+        Update
       </Link>
 
       <button
         onClick={() => deleteEbook({ variables: { id: ebook.id } })}
-        className="bg-red-500 mt-5 p-2 rounded-lg"
+        className="bg-red-500 hover:bg-red-600 mt-5 p-2 text-white rounded-lg"
       >
         Delete
       </button>
