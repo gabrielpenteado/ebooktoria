@@ -2,10 +2,9 @@ import React from "react";
 
 import ebooktoria from "../../../public/ebooktoria4.png";
 import Image from "next/image";
-import LoginButton from "./LoginButton";
-import Link from "next/link";
+import LogoutButton from "./LogoutButton";
 
-export const Header = () => {
+export const HeaderAdmin = () => {
   return (
     <nav className="flex p-2 pb-6 w-full bg-zinc-800 mx-auto">
       <div className="mx-auto">
@@ -17,7 +16,7 @@ export const Header = () => {
       </div>
 
       <div className="my-auto pr-4">
-        <LoginButton />
+        <LogoutButton />
       </div>
     </nav>
   );

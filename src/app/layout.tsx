@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
+import { ProviderApollo } from "../providers/apollo-provider/Provider";
+import { ProviderNextAuth } from "@/providers/nextauth-provider/Provider";
 import { EbookProvider } from "@/context/EbookContext";
-import { Header } from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,12 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <EbookProvider>
-        <Providers>
-          <body className={inter.className}>
-            <Header />
-            {children}
-          </body>
-        </Providers>
+        <ProviderApollo>
+          <ProviderNextAuth>
+            <body className={inter.className}>{children}</body>
+          </ProviderNextAuth>
+        </ProviderApollo>
       </EbookProvider>
     </html>
   );

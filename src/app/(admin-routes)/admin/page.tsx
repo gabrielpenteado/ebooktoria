@@ -5,20 +5,37 @@ import React, { FormEvent, useContext } from "react";
 import { EbookContext } from "@/context/EbookContext";
 
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_EBOOKS } from "../api/graphql/queries";
-import { ADD_EBOOK } from "../api/graphql/mutations";
-import EbookList from "../components/EbookList";
+import { GET_EBOOKS } from "../../api/graphql/queries";
+import { ADD_EBOOK } from "../../api/graphql/mutations";
+import EbookList from "../../components/EbookList";
 
-// import { IEbook } from "@/types";
+import { redirect } from "next/navigation";
+
+import { useSession } from "next-auth/react";
 
 export default function AdminPage() {
-  const { title, setTitle, image_url, setImage_url, link, setLink } =
-    useContext(EbookContext);
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/");
+    },
+  });
+
+  const {
+    title,
+    setTitle,
+    image_url,
+    setImage_url,
+    description,
+    setDescription,
+    link,
+    setLink,
+  } = useContext(EbookContext);
 
   // const { data } = useQuery(GET_EBOOKS);
 
   const [addEbook] = useMutation(ADD_EBOOK, {
-    variables: { image_url, title, link },
+    variables: { image_url, title, description, link },
     refetchQueries: [{ query: GET_EBOOKS }],
   });
 
@@ -32,6 +49,7 @@ export default function AdminPage() {
     addEbook({ variables: { image_url, title, link } });
     setImage_url("");
     setTitle("");
+    setDescription("");
     setLink("");
   };
 
@@ -61,6 +79,19 @@ export default function AdminPage() {
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               placeholder="title"
+              className="bg-transparent border text-black p-2 rounded-lg"
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <label htmlFor="title">Type the description text:</label>
+            <input
+              value={description?.toString()}
+              id="description"
+              name="description"
+              onChange={(e) => setDescription(e.target.value)}
+              type="text"
+              placeholder="descritpion"
               className="bg-transparent border text-black p-2 rounded-lg"
             />
           </div>

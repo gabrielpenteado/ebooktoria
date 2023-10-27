@@ -2,14 +2,16 @@
 
 import {
   ADD_AUTHOR,
+  ADD_CATEGORY,
   DELETE_AUTHOR,
+  DELETE_CATEGORY,
   UPDATE_EBOOK,
 } from "@/app/api/graphql/mutations";
 import { GET_EBOOK } from "@/app/api/graphql/queries";
 import { IEbook } from "@/types";
 import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
-import { AiFillMinusCircle } from "react-icons/ai";
+import { AiFillCloseCircle } from "react-icons/ai";
 import Image from "next/image";
 
 type Props = {
@@ -21,7 +23,9 @@ type Props = {
 const Ebook = ({ params: { id } }: Props) => {
   const [title, setTitle] = useState("");
   const [image_url, setImage_url] = useState("");
-  const [name, setName] = useState("");
+  const [authorName, setAuthorName] = useState("");
+  const [categoryName, setCategoryName] = useState("");
+  const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
 
   const { data, loading, error } = useQuery(GET_EBOOK, {
@@ -29,7 +33,7 @@ const Ebook = ({ params: { id } }: Props) => {
   });
 
   const [addAuthor] = useMutation(ADD_AUTHOR, {
-    variables: { ebookId: id, name },
+    variables: { ebookId: id, authorName },
     refetchQueries: [{ query: GET_EBOOK, variables: { id } }],
   });
 
@@ -37,8 +41,23 @@ const Ebook = ({ params: { id } }: Props) => {
     refetchQueries: [{ query: GET_EBOOK, variables: { id } }],
   });
 
+  const [addCategory] = useMutation(ADD_CATEGORY, {
+    variables: { ebookId: id, categoryName },
+    refetchQueries: [{ query: GET_EBOOK, variables: { id } }],
+  });
+
+  const [deleteCategory] = useMutation(DELETE_CATEGORY, {
+    refetchQueries: [{ query: GET_EBOOK, variables: { id } }],
+  });
+
   const [updateEbook] = useMutation(UPDATE_EBOOK, {
-    variables: { id: id, title: title, image_url: image_url, link: link },
+    variables: {
+      id: id,
+      title: title,
+      image_url: image_url,
+      description: description,
+      link: link,
+    },
     refetchQueries: [{ query: GET_EBOOK, variables: { id } }],
   });
 
@@ -47,9 +66,16 @@ const Ebook = ({ params: { id } }: Props) => {
 
   const handleAddAuthor = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (name === "") return alert("Please enter author name");
-    addAuthor({ variables: { ebooklId: id, name } });
-    setName("");
+    if (authorName === "") return alert("Please enter author name");
+    addAuthor({ variables: { ebooklId: id, authorName } });
+    setAuthorName("");
+  };
+
+  const handleAddCategory = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (categoryName === "") return alert("Please enter category name");
+    addCategory({ variables: { ebooklId: id, categoryName } });
+    setCategoryName("");
   };
 
   const handleUpdateEbook = (e: React.FormEvent<HTMLFormElement>) => {
@@ -61,6 +87,7 @@ const Ebook = ({ params: { id } }: Props) => {
     });
     setTitle("");
     setImage_url("");
+    setDescription("");
     setLink("");
   };
 
@@ -98,9 +125,9 @@ const Ebook = ({ params: { id } }: Props) => {
           <div className="flex gap-2 text-black">
             {ebook?.authors?.map((author) => (
               <div key={author.id} className="flex items-center gap-2">
-                <h2 className="font-bold">{author?.name}</h2>
+                <h2 className="font-bold">{author?.authorName}</h2>
                 <span className="cursor-pointer">
-                  <AiFillMinusCircle
+                  <AiFillCloseCircle
                     size="1.2rem"
                     onClick={() =>
                       deleteAuthor({
@@ -115,6 +142,7 @@ const Ebook = ({ params: { id } }: Props) => {
               </div>
             ))}
           </div>
+
           <p className="text-slate-400 ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             cum nam sed voluptates sunt aliquid nemo maxime itaque tempora,
@@ -125,20 +153,41 @@ const Ebook = ({ params: { id } }: Props) => {
             consectetur soluta totam temporibus libero.
           </p>
 
+          <div className="flex gap-2 text-black">
+            {ebook?.categories?.map((category) => (
+              <div key={category.id} className="flex items-center gap-2">
+                <h2 className="font-bold">{category?.categoryName}</h2>
+                <span className="cursor-pointer">
+                  <AiFillCloseCircle
+                    size="1.2rem"
+                    onClick={() =>
+                      deleteCategory({
+                        variables: {
+                          id: category.id,
+                        },
+                      })
+                    }
+                    color="red"
+                  />
+                </span>
+              </div>
+            ))}
+          </div>
+
           {/* add author form */}
           <form
             onSubmit={handleAddAuthor}
             className="flex justify-center mt-5 space-x-2"
           >
             <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={authorName}
+              onChange={(e) => setAuthorName(e.target.value)}
               type="text"
               placeholder="Enter Author"
               className="bg-transparent text-black border p-2 rounded-lg"
             />
             <button
-              disabled={!name}
+              disabled={!authorName}
               className=" p-2 rounded-lg bg-yellow-500  disabled:bg-gray-500 disabled:cursor-not-allowed"
             >
               Add Author
@@ -147,10 +196,30 @@ const Ebook = ({ params: { id } }: Props) => {
         </div>
       </section>
 
+      {/* add category form */}
+      <form
+        onSubmit={handleAddCategory}
+        className="flex justify-center mt-2 space-x-2"
+      >
+        <input
+          value={categoryName}
+          onChange={(e) => setCategoryName(e.target.value)}
+          type="text"
+          placeholder="Enter Category"
+          className="bg-transparent text-black border p-2 rounded-lg"
+        />
+        <button
+          disabled={!categoryName}
+          className=" p-2 rounded-lg bg-yellow-500  disabled:bg-gray-500 disabled:cursor-not-allowed"
+        >
+          Add Category
+        </button>
+      </form>
+
       {/* update form */}
       <form
         onSubmit={handleUpdateEbook}
-        className="flex mt-3 justify-center gap-2 "
+        className="flex mt-4 justify-center gap-2 "
       >
         <input
           value={title}
@@ -167,10 +236,17 @@ const Ebook = ({ params: { id } }: Props) => {
           className="bg-transparent border text-black p-2 rounded-lg"
         />
         <input
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          type="text"
+          placeholder="Enter description text"
+          className="bg-transparent border text-black p-2 rounded-lg"
+        />
+        <input
           value={link}
           onChange={(e) => setLink(e.target.value)}
           type="text"
-          placeholder=" Enter new link"
+          placeholder=" Enter link"
           className="bg-transparent border text-black p-2 rounded-lg"
         />
         <button

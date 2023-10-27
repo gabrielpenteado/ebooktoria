@@ -11,32 +11,33 @@ datasource db {
 }
 
 model Ebook {
-  id         String     @id @default(uuid())
-  title      String
-  image_url  String
-  link       String
-  createAt   DateTime   @default(now())
-  updateAt   DateTime   @default(now())
-  authors    Author[]
-  categories Category[]
+  id          String     @id @default(uuid())
+  title       String
+  image_url   String
+  link        String
+  description String
+  createAt    DateTime   @default(now())
+  updateAt    DateTime   @default(now())
+  authors     Author[]
+  categories  Category[]
 
   @@map("ebooks")
 }
 
 model Author {
-  id      String  @id @default(uuid())
-  name    String
-  Ebook   Ebook?  @relation(fields: [ebookId], references: [id])
-  ebookId String?
+  id         String  @id @default(uuid())
+  authorName String
+  Ebook      Ebook?  @relation(fields: [ebookId], references: [id])
+  ebookId    String?
 
   @@map("authors")
 }
 
 model Category {
-  id      String  @id @default(uuid())
-  name    String
-  Ebook   Ebook?  @relation(fields: [ebookId], references: [id])
-  ebookId String?
+  id           String  @id @default(uuid())
+  categoryName String
+  Ebook        Ebook?  @relation(fields: [ebookId], references: [id])
+  ebookId      String?
 
   @@map("categories")
 }

@@ -34,21 +34,24 @@ export default function EbookAdmin({ ebook }: Props) {
 
       {/*title  */}
       <h1 className="font-bold text-xl text-center mt-6 mb-2">{ebook.title}</h1>
-      {/* source and date */}
+      {/* authors*/}
       <div className="flex justify-between italic text-xs mt-auto text-gray-800">
         <p className="text-gray-700 text-sm">
-          Authors :{" "}
+          author:{" "}
           {ebook?.authors.map((author) => (
-            <span key={author.id}>{author.name} ; </span>
+            <span key={author.id}>{author.authorName};</span>
           ))}
         </p>
       </div>
       {/* description */}
-      <p className="text-xs my-2 line-clamp-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab
-        recusandae repudiandae ratione quia voluptatibus tempora dolores,
-        veritatis cum, soluta numquam voluptatum earum obcaecati illum dolor.
-        Fuga incidunt maxime culpa.
+      <p className="text-xs my-2 line-clamp-3">{ebook.description}</p>
+
+      {/* categories */}
+      <p className="text-xs font-sans">
+        category:{" "}
+        {ebook?.categories.map((category) => (
+          <span key={category.id}>{category.categoryName} ;</span>
+        ))}
       </p>
 
       <Link

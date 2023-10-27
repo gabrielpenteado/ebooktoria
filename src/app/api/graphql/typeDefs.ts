@@ -9,6 +9,7 @@ export const typeDefs = `#graphql
   title:      String!
   image_url:  String!
   link:       String!
+  description: String!
   createAt:   String!   
   updateAt:   String!  
   authors:    [Author!]
@@ -17,23 +18,23 @@ export const typeDefs = `#graphql
 
   type Author {
     id: ID!
-    name: String!
+    authorName: String!
     ebookId: String
   }
 
   type Category {
     id: ID!
-    name: String!
+    categoryName: String!
     ebookId: String
   }
 
   type Mutation {
-    addEbook(image_url: String!, title: String!, link: String!):  Ebook
-    updateEbook(id: ID!, title: String, image_url: String, link: String): Ebook
+    addEbook(image_url: String!, title: String!, link: String!, description: String!):  Ebook
+    updateEbook(id: ID!, title: String, image_url: String, link: String, description: String): Ebook
     deleteEbook(id: ID!): Ebook
-    addAuthor(ebookId: ID!, name: String!): Author
+    addAuthor(ebookId: ID!, authorName: String!): Author
     deleteAuthor(id: ID!): Author
-    addCategory(ebookId: ID!, name: String!): Category
+    addCategory(ebookId: ID!, categoryName: String!): Category
     deleteCategory(id: ID!): Category
   }
 `;

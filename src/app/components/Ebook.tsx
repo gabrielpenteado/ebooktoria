@@ -31,19 +31,22 @@ export default function Ebook({ ebook }: Props) {
       </h1>
       {/* authors*/}
       <div className="flex justify-between italic text-xs mt-auto text-gray-800">
-        <p className="text-gray-700 text-sm">
-          Authors :{" "}
+        <p className="text-gray-800 font-sans text-sm">
+          author:{" "}
           {ebook?.authors.map((author) => (
-            <span key={author.id}>{author.name} ; </span>
+            <span key={author.id}>{author.authorName};</span>
           ))}
         </p>
       </div>
       {/* description */}
-      <p className="text-xs my-2 line-clamp-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab
-        recusandae repudiandae ratione quia voluptatibus tempora dolores,
-        veritatis cum, soluta numquam voluptatum earum obcaecati illum dolor.
-        Fuga incidunt maxime culpa.
+      <p className="text-xs my-2 line-clamp-4">{ebook.description}</p>
+
+      {/* categories */}
+      <p className="text-xs font-sans">
+        Category:{" "}
+        {ebook?.categories.map((category) => (
+          <span key={category.id}>{category.categoryName};</span>
+        ))}
       </p>
 
       <Link

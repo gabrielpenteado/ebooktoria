@@ -4,6 +4,7 @@ CREATE TABLE "ebooks" (
     "title" TEXT NOT NULL,
     "image_url" TEXT NOT NULL,
     "link" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updateAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -13,7 +14,7 @@ CREATE TABLE "ebooks" (
 -- CreateTable
 CREATE TABLE "authors" (
     "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
+    "authorName" TEXT NOT NULL,
     "ebookId" TEXT,
 
     CONSTRAINT "authors_pkey" PRIMARY KEY ("id")
@@ -22,7 +23,7 @@ CREATE TABLE "authors" (
 -- CreateTable
 CREATE TABLE "categories" (
     "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
+    "categoryName" TEXT NOT NULL,
     "ebookId" TEXT,
 
     CONSTRAINT "categories_pkey" PRIMARY KEY ("id")

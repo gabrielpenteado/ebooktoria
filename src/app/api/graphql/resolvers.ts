@@ -36,6 +36,7 @@ export const resolvers = {
           title: args.title,
           image_url: args.image_url,
           link: args.link,
+          description: args.description,
         },
       });
     },
@@ -48,6 +49,7 @@ export const resolvers = {
           title: args.title,
           image_url: args.image_url,
           link: args.link,
+          description: args.description,
         },
       });
     },
@@ -62,7 +64,7 @@ export const resolvers = {
       return await context.prisma?.author.create({
         data: {
           ebookId: args.ebookId,
-          name: args.name,
+          authorName: args.authorName,
         },
       });
     },
@@ -77,7 +79,7 @@ export const resolvers = {
       return await context.prisma?.category.create({
         data: {
           ebookId: args.ebookId,
-          name: args.name,
+          categoryName: args.categoryName,
         },
       });
     },

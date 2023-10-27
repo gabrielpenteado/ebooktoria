@@ -7,16 +7,17 @@ export const GET_EBOOKS = gql`
       image_url
       title
       link
+      description
       createAt
       updateAt
       authors {
         id
-        name
+        authorName
         ebookId
       }
       categories {
         id
-        name
+        categoryName
         ebookId
       }
     }
@@ -30,17 +31,18 @@ export const GET_EBOOK = gql`
       image_url
       title
       link
+      description
       createAt
       updateAt
       authors {
         id
-        name
+        authorName
         ebookId
       }
       categories {
         ebookId
         id
-        name
+        categoryName
       }
     }
   }
