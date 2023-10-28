@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+import { redirect } from "next/navigation";
 
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -17,13 +18,17 @@ export const authOptions = {
     async signIn({ account, profile }) {
       if (profile.email_verified && profile.email === process.env.GMAIL) {
         return true;
+        // need to return true or a true statement like a object or string or number.
       }
-      return false;
+      return "/unauthorized";
+      // or return false
     },
   },
-  pages: {
-    signIn: "/userlogged",
-  },
+  // pages: {
+  //   signIn: "/sign",
+  //   error: '/error',
+  //   signOut: '/signout'
+  // },
 };
 // @ts-ignore
 const handler = NextAuth(authOptions);

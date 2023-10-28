@@ -3,7 +3,7 @@
 import Ebook from "../../app/components/Ebook";
 import EbookAdmin from "./EbookAdmin";
 import { useQuery } from "@apollo/client";
-import { GET_EBOOKS } from "../../app/api/graphql/queries";
+import { GET_EBOOKS } from "../api/graphql/queries";
 import { IEbook } from "@/types";
 import { usePathname } from "next/navigation";
 

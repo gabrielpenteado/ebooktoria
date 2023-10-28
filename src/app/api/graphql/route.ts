@@ -11,6 +11,7 @@ import { Context } from "./context";
 const apolloServer = new ApolloServer<Context>({
   resolvers,
   typeDefs,
+  introspection: process.env.NODE_ENV !== "production",
 });
 
 // req has the type NextRequest
