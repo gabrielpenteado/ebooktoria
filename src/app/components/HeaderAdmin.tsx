@@ -1,6 +1,6 @@
 import React from "react";
 
-import ebooktoria from "../../../public/ebooktoria4.png";
+import ebooktoria from "../../../public/ebooktoria.png";
 import Image from "next/image";
 import LogoutButton from "./LogoutButton";
 
