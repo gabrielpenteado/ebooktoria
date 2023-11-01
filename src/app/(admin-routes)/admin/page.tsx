@@ -12,6 +12,7 @@ import EbookList from "../../components/EbookList";
 import { redirect } from "next/navigation";
 
 import { useSession } from "next-auth/react";
+import { ReturnButton } from "@/app/components/ReturnButton";
 
 export default function AdminPage() {
   const { data: session } = useSession({
@@ -55,10 +56,16 @@ export default function AdminPage() {
 
   return (
     <>
-      <div className="w-[100vw] h-[90vh] flex justify-center items-center align-middle">
-        <form onSubmit={handleSubmit} className="flex flex-col gap-8 w-[600px]">
+      <div className="h-[90vh] max-w-5xl bg-[#fafaff] rounded-b-lg flex flex-col justify-center items-center align-middle mx-auto">
+        <span>
+          <ReturnButton path="/userlogged" />
+        </span>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-8 md:w-[600px] mt-20"
+        >
           <div className="flex flex-col gap-1">
-            <label htmlFor="image_url">Type the ebook url image:</label>
+            <label htmlFor="image_url">Type the image url:</label>
             <input
               value={image_url?.toString()}
               id="image_url"
@@ -108,13 +115,13 @@ export default function AdminPage() {
               className="bg-transparent border text-black p-2 rounded-lg"
             />
           </div>
-          <button className="bg-amber-400 text-white hover:bg-amber-500 p-2 rounded-lg ">
+          <button className="bg-amber-400 text-white hover:bg-amber-500 p-2 rounded-lg">
             Add Ebook
           </button>
         </form>
       </div>
 
-      <div className="grid grid-cols-8 gap-4 w-[100vw]">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 gap-y-12 w-full px-10 place-content-center mt-8">
         <EbookList />
       </div>
     </>

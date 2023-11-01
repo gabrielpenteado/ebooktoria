@@ -18,7 +18,7 @@ export default function EbookAdmin({ ebook }: Props) {
   });
 
   return (
-    <article className="flex flex-col p-4 bg-gray-200 dark:bg-zinc-800 hover:scale-105 shadow-lg hover:shadow-lg hover:bg-gray-300 transition duration-300 ease-out text-black rounded-lg ">
+    <article className="flex flex-col min-w-fit max-w-screen-sm p-4 bg-gray-200 dark:bg-zinc-800 hover:scale-105 shadow-lg hover:shadow-lg hover:bg-gray-300 transition duration-300 ease-out text-black rounded-lg ">
       {/* image */}
       {ebook.image_url && (
         <div className="flex justify-center">
@@ -57,7 +57,7 @@ export default function EbookAdmin({ ebook }: Props) {
       <Link
         href={`${BASE_URL}/ebook/${ebook.id}`}
         target="_blank"
-        className="bg-orange-500 hover:bg-orange-600 mt-5 p-2 text-white rounded-lg text-center"
+        className="bg-yellow-500 hover:bg-yellow-600 mt-5 p-2 text-white rounded-lg text-center"
       >
         Update
       </Link>

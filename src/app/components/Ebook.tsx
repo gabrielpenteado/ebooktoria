@@ -11,7 +11,7 @@ interface Props {
 
 export default function Ebook({ ebook }: Props) {
   return (
-    <article className="flex flex-col min-w-fit p-4 bg-gray-200 dark:bg-zinc-800 hover:scale-105 shadow-lg hover:shadow-lg hover:bg-gray-300 transition duration-300 ease-out text-black rounded-lg ">
+    <article className="flex flex-col min-w-fit max-w-screen-sm relative p-4 bg-gray-200 dark:bg-zinc-800 hover:scale-105 shadow-lg hover:shadow-lg hover:bg-gray-300 transition duration-300 ease-out text-black rounded-lg ">
       {/* image */}
       {ebook.image_url && (
         <div className="flex justify-center">

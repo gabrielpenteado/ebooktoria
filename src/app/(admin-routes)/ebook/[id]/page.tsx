@@ -13,6 +13,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Image from "next/image";
+import { ReturnButton } from "@/app/components/ReturnButton";
 
 type Props = {
   params: {
@@ -105,15 +106,15 @@ const Ebook = ({ params: { id } }: Props) => {
       </p>
     );
   return (
-    <article className="flex flex-col align-middle items-center justify-center max-w-5xl mx-auto text-white">
-      <section className="flex flex-col justify-center items-center gap-2 mt-4 ">
+    <article className="flex flex-col align-middle items-center px-10 justify-center max-w-5xl bg-[#fafaff] mx-auto text-white">
+      <section className="flex flex-col mx-auto align-middle justify-center items-center gap-10 mt-4">
         {ebook.image_url && (
           <Image
             height={200}
             width={200}
             src={ebook.image_url}
             alt={ebook.title}
-            className="flex justify-center align-middle items-center"
+            className="flex justify-center align-middle items-center ml-5"
           />
         )}
 
@@ -143,15 +144,7 @@ const Ebook = ({ params: { id } }: Props) => {
             ))}
           </div>
 
-          <p className="text-slate-400 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            cum nam sed voluptates sunt aliquid nemo maxime itaque tempora,
-            autem alias nostrum molestiae deserunt earum animi numquam
-            reprehenderit laboriosam libero? Quas, atque totam vero nostrum
-            dolore, nihil autem neque architecto deserunt illo itaque, ab quae
-            ipsam corrupti ipsum quaerat? Sed hic ipsum excepturi earum minus
-            consectetur soluta totam temporibus libero.
-          </p>
+          <p className="text-slate-400 ">{ebook.description}</p>
 
           <div className="flex gap-2 text-black">
             {ebook?.categories?.map((category) => (
@@ -184,7 +177,7 @@ const Ebook = ({ params: { id } }: Props) => {
               onChange={(e) => setAuthorName(e.target.value)}
               type="text"
               placeholder="Enter Author"
-              className="bg-transparent text-black border p-2 rounded-lg"
+              className=" md:w-[300px] bg-transparent text-black border p-2 rounded-lg"
             />
             <button
               disabled={!authorName}
@@ -193,61 +186,62 @@ const Ebook = ({ params: { id } }: Props) => {
               Add Author
             </button>
           </form>
+
+          <form
+            onSubmit={handleAddCategory}
+            className="flex justify-center mt-2 space-x-2"
+          >
+            <input
+              value={categoryName}
+              onChange={(e) => setCategoryName(e.target.value)}
+              type="text"
+              placeholder="Enter Category"
+              className="md:w-[300px] bg-transparent text-black border p-2 rounded-lg"
+            />
+            <button
+              disabled={!categoryName}
+              className="p-2 rounded-lg bg-yellow-500  disabled:bg-gray-500 disabled:cursor-not-allowed"
+            >
+              Add Category
+            </button>
+          </form>
         </div>
       </section>
 
       {/* add category form */}
-      <form
-        onSubmit={handleAddCategory}
-        className="flex justify-center mt-2 space-x-2"
-      >
-        <input
-          value={categoryName}
-          onChange={(e) => setCategoryName(e.target.value)}
-          type="text"
-          placeholder="Enter Category"
-          className="bg-transparent text-black border p-2 rounded-lg"
-        />
-        <button
-          disabled={!categoryName}
-          className=" p-2 rounded-lg bg-yellow-500  disabled:bg-gray-500 disabled:cursor-not-allowed"
-        >
-          Add Category
-        </button>
-      </form>
 
       {/* update form */}
       <form
         onSubmit={handleUpdateEbook}
-        className="flex mt-4 justify-center gap-2 "
+        className="flex flex-col mt-4 justify-center gap-2 "
       >
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           placeholder="Enter new title"
-          className="bg-transparent border text-black p-2 rounded-lg"
+          className="md:w-[600px] bg-transparent border text-black p-2 rounded-lg"
         />
         <input
           value={image_url}
           onChange={(e) => setImage_url(e.target.value)}
           type="text"
           placeholder="Enter image url"
-          className="bg-transparent border text-black p-2 rounded-lg"
+          className="md:w-[600px] bg-transparent border text-black p-2 rounded-lg"
         />
         <input
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           type="text"
           placeholder="Enter description text"
-          className="bg-transparent border text-black p-2 rounded-lg"
+          className="md:w-[600px] bg-transparent border text-black p-2 rounded-lg"
         />
         <input
           value={link}
           onChange={(e) => setLink(e.target.value)}
           type="text"
           placeholder=" Enter link"
-          className="bg-transparent border text-black p-2 rounded-lg"
+          className="md:w-[600px] bg-transparent border text-black p-2 rounded-lg"
         />
         <button
           disabled={!title && !image_url && !link}
@@ -256,6 +250,10 @@ const Ebook = ({ params: { id } }: Props) => {
           Update
         </button>
       </form>
+
+      <span className="py-10">
+        <ReturnButton path="/admin" />
+      </span>
     </article>
   );
 };

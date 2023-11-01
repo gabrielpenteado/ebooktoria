@@ -12,7 +12,7 @@ const UserLogged = async () => {
   }
 
   return (
-    <div className="flex flex-col h-[80vh] justify-center items-center text-center">
+    <div className="flex flex-col h-[80vh] bg-[#fafaff] justify-center max-w-5xl mx-auto items-center text-center">
       <Link
         href={"/admin"}
         className=" mb-8  py-3 text-xl text-center text-white transition-colors duration-300 bg-purple-700 rounded-full

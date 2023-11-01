@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 import { HeaderAdmin } from "../components/HeaderAdmin";
 
-interface AdminLayoutProps {
+interface AuthLayoutProps {
   children: ReactNode;
 }
 
-export default function AdminLayout({ children }: AdminLayoutProps) {
+export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <>
       <HeaderAdmin />
