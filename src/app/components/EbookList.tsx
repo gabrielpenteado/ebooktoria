@@ -25,7 +25,7 @@ export default function EbookList() {
   if (error)
     return (
       <p className="text-black flex items-center justify-center">
-        Oops! Something went wrong ....${error.message}
+        Oops! Something went wrong .... {error.message}
       </p>
     );
 
