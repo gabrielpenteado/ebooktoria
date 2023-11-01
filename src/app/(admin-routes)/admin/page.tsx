@@ -2,7 +2,7 @@
 
 import React, { FormEvent, useContext } from "react";
 
-import { EbookContext } from "@/context/EbookContext";
+import { EbookContext } from "@/app/context/EbookContext";
 
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_EBOOKS } from "../../api/graphql/queries";

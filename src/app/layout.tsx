@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ProviderApollo } from "../providers/apollo-provider/Provider";
 import { ProviderNextAuth } from "@/providers/nextauth-provider/Provider";
-import { EbookProvider } from "@/context/EbookContext";
+import { EbookProvider } from "@/app/context/EbookContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
