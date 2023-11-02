@@ -44,14 +44,23 @@ export default function AdminPage() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (image_url === "" || title === "" || link === "")
-      return alert("Enter fields");
+    if (image_url === "" || title === "" || description === "" || link === "")
+      return alert("Enter all fields");
 
-    addEbook({ variables: { image_url, title, link } });
-    setImage_url("");
-    setTitle("");
-    setDescription("");
-    setLink("");
+    if (
+      image_url?.startsWith("https://m.media-amazon.com") &&
+      link?.startsWith("https://www.amazon.com/")
+    ) {
+      addEbook({ variables: { image_url, title, description, link } });
+      setImage_url("");
+      setTitle("");
+      setDescription("");
+      setLink("");
+    } else {
+      return alert(
+        "Ebook image url and link should be a valid link from amazon ebooks store"
+      );
+    }
   };
 
   return (
@@ -121,7 +130,10 @@ export default function AdminPage() {
         </form>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 gap-y-12 w-full px-10 place-content-center mt-8">
+      <div
+        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 gap-y-12 w-full 
+      px-10 place-content-center mb-8 mt-8"
+      >
         <EbookList />
       </div>
     </>

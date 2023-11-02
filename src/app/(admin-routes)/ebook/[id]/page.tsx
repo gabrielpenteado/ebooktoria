@@ -13,6 +13,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { ReturnButton } from "@/app/components/ReturnButton";
 
 type Props = {
@@ -22,6 +24,13 @@ type Props = {
 };
 
 const Ebook = ({ params: { id } }: Props) => {
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/");
+    },
+  });
+
   const [title, setTitle] = useState("");
   const [image_url, setImage_url] = useState("");
   const [authorName, setAuthorName] = useState("");
@@ -81,10 +90,16 @@ const Ebook = ({ params: { id } }: Props) => {
 
   const handleUpdateEbook = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (title === "" || image_url === "" || link === "")
-      return alert("Please enter fields");
+    if (title === "" || image_url === "" || description === "" || link === "")
+      return alert("Please enter all fields");
     updateEbook({
-      variables: { id: id, title: title, image_url: image_url, link: link },
+      variables: {
+        id: id,
+        title: title,
+        image_url: image_url,
+        description: description,
+        link: link,
+      },
     });
     setTitle("");
     setImage_url("");

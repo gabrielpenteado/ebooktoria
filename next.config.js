@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
+  images: {             // this config allows use external links starting with m.media-amazon.com on next Images 
     remotePatterns: [
       {
         protocol: 'https',
