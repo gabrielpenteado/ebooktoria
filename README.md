@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+   <strong>Ebooktoria</strong>
+</h1>
 
-## Getting Started
+<h2 align="center">
+  A project dedicated to saving and sharing your favorite ebooks 
+</h2>
 
-First, run the development server:
+<div align="center">
+  <a href="https://github.com/gabrielpenteado/ebooktoria/blob/main/LICENSE.md">
+    <img src="https://img.shields.io/github/license/gabrielpenteado/mydearpage?color=informational" alt="license"/>
+  </a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  <img src="https://img.shields.io/static/v1?label=npm&message=v9.5.1&color=informational&style=flat-square" alt="npm version">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <!-- <img src="https://img.shields.io/website?down_color=red&down_message=offline&style=flat-square&up_color=008000&up_message=online&url=https%3A%2F%2Fmydearpage.netlify.app" alt="website status"> -->
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📑 Contents
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [About the project](#-about-the-project)
+  - Built with
+- [Getting Started](#-getting-started)
+  - Requirements
+  - Installation
+- [Contributions](#-contributions)
+- [License](#-license)
+  <br>
 
-## Learn More
+## 📚 About the project
 
-To learn more about Next.js, take a look at the following resources:
+<p align="justify"> 
+  <strong>Ebooktoria</strong> is a project created with that helps you keep your favorite <em>ebooks</em> in one place. 
+  You can manage your digital book collection and share it with others who love to read.
+</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: center">
+          Video
+        </th>
+        <th style="text-align: center">
+          Website
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="https://www.youtube.com/watch?v=XFqpPZEtLVk">
+            <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+          </a>
+        </td>  
+        <td>
+          <a href="https://ebooktoria.vercel.app">
+            <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+          </a>
+        </td>  
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<p align="center">
+    <img src="https://raw.githubusercontent.com/gabrielpenteado/ebooktoria/main/public/ebooktoria-readme.png"> 
+</p>
 
-## Deploy on Vercel
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: center">
+          <a href="https://raw.githubusercontent.com/gabrielpenteado/ebooktoria/main/public/screenshot1.jpg">Screenshot-1</a>
+        </th>
+        <th style="text-align: center">
+          <a href="https://raw.githubusercontent.com/gabrielpenteado/ebooktoria/main/public/screenshot2.jpg">Screenshot-2</a>
+        </th>
+        <th style="text-align: center">
+          <a href="https://raw.githubusercontent.com/gabrielpenteado/ebooktoria/main/public/screenshot3.jpg">Screenshot-3</a>
+        </th> 
+      </tr>
+    </thead>
+  </table>
+</div>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Built with
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![react](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge)
+![typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![next](https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge)
+![tailwindcss](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![nextauth](https://img.shields.io/badge/NextAuth-black?style=for-the-badge)
+![graphql](https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=fff&style=for-the-badge)
+![prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+
+## 🎨 Getting started
+
+To start using <strong>Ebooktoria</strong> follow the instructions below.
+
+### Requirements
+
+- npm (^9.5.1)
+- react(^18.2.0)
+- [next](https://nextjs.org/)
+- [next-auth](https://next-auth.js.org/)
+- [graphQL](https://graphql.org/)
+- [apollo-server](https://www.apollographql.com/docs/apollo-server/)
+- [apollo-client](https://www.apollographql.com/docs/react/get-started/)
+- [prisma](https://www.prisma.io/)
+- PostgreSQL database - [supabase](https://supabase.com/)
+
+### Browsers Support
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_24x24.png" alt="Chrome" />](https://www.google.com/intl/en/chrome/)<br> Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/edge/edge_24x24.png" alt="Edge" />](https://www.microsoft.com/en-us/edge)<br> Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_24x24.png" alt="Firefox" />](https://www.mozilla.org/en-US/firefox/new/)<br> Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/safari/safari_24x24.png" alt="Safari" />](https://www.apple.com/br/safari/)<br> Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/opera/opera_24x24.png" alt="Opera" />](https://www.opera.com)<br> Opera |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                   ✅                                                                                   |                                                                              ✅                                                                              |                                                                                       ✅                                                                                       |                                                                                ✅                                                                                |                                                                        ✅                                                                         |
+|                                                                              last version                                                                              |                                                                         last version                                                                         |                                                                                  last version                                                                                  |                                                                           last version                                                                           |                                                                   last version                                                                    |
+
+### Installation
+
+1. Clone the repository<br>
+   `git clone https://github.com/gabrielpenteado/ebooktoria`
+
+2. Access the project folder in the terminal
+
+3. Install all packages dependencies<br>
+   `npm install`
+
+4. Start using<br>
+   `npm run dev`
+   <br>
+
+## 🤝 Contributions
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)<br>
+The foundation of the open source community are the contributions, them inspire us to learn and create. Any contributions are greatly appreciated.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE.md](https://github.com/gabrielpenteado/ebooktoria/blob/main/LICENSE.md) file for details.
+<br>
+<br>
+
+<div align="center">
+  <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/63300269?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d" />
+  <h1>Gabriel Penteado</h1>
+  <strong>Full Stack Developer</strong>
+  <br/>
+  <br/>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabriel-penteado)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gabrielpenteado)
+[![Gmail](https://img.shields.io/badge/gabripenteado@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gabripenteado@gmail.com)
+<br />
+<br />
+
+</div>
