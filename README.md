@@ -121,7 +121,7 @@ To start using <strong>Ebooktoria</strong> follow the instructions below.
 ### Installation
 
 1. Clone the repository<br>
-   `git clone https://github.com/gabrielpenteado/ebooktoria`
+   `git clone https://github.com/gabrielpenteado/ebooktoria.git`
 
 2. Access the project folder in the terminal
 
