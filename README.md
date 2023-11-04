@@ -49,7 +49,7 @@
     <tbody>
       <tr>
         <td>
-          <a href="https://www.youtube.com/watch?v=XFqpPZEtLVk">
+          <a href="https://youtu.be/jyN4Royj6Io">
             <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
           </a>
         </td>  
