@@ -30,7 +30,7 @@
 ## 📚 About the project
 
 <p align="justify"> 
-  <strong>Ebooktoria</strong> is a project created with that helps you keep your favorite <em>ebooks</em> in one place. 
+  <strong>Ebooktoria</strong> is a project created that helps you keep your favorite <em>ebooks</em> in one place. 
   You can manage your digital book collection and share it with others who love to read.
 </p>
 
