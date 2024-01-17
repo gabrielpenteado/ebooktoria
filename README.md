@@ -109,7 +109,7 @@ To start using <strong>Ebooktoria</strong> follow the instructions below.
 - [apollo-server](https://www.apollographql.com/docs/apollo-server/)
 - [apollo-client](https://www.apollographql.com/docs/react/get-started/)
 - [prisma](https://www.prisma.io/)
-- PostgreSQL database - [supabase](https://supabase.com/)
+- PostgreSQL database - [supabase](https://supabase.com/) or [neon](https://neon.tech/)
 
 ### Browsers Support
 
